@@ -1,0 +1,131 @@
+.main-slider {
+	/* .main-slider__body */
+	position: relative;
+	.swiper-wrapper {
+		align-items: stretch; // это для того если разный по высоте контент - растянуть вниз
+	}
+	@media (max-width: $md3 + px) {
+		.swiper-wrapper {
+			align-items: flex-start; // это для того если разный по высоте контент - растянуть вниз
+		}
+	}
+	&__body {
+	}
+
+	/* .main-slider__item */
+	&__item {
+	}
+
+	/* .main-slider__control */
+	&__control {
+		position: absolute; // позиционируется точно относительно родителя
+		left: 50%; // ставим по центру
+		width: 100px;
+		height: 100px;
+		bottom: 0px; //выравниваем в центр
+		transform: translate(-50%, 50%);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:after {
+			content: "";
+			background-color: #fff;
+			position: absolute;
+			width: 70%;
+			height: 70%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%) rotate(-45deg); // изображение одно - флипуем
+		}
+	}
+}
+.item-main-slider {
+	text-align: center; // выравнивание текстов и кнопок по центру
+	// внутренний отступ в блоке
+	padding-top: 30px;
+	padding-bottom: 100px;
+	// для выравнивания изображения
+	position: relative;
+
+	/* .item-main-slider__content */
+	&__content {
+		position: relative;
+		z-index: 2; // вытягиваем на верх bg
+		height: 100%;
+	}
+
+	/* .item-main-slider__container */
+	&__container {
+		height: 100%;
+		// растягиваем на всю высоту блок слайдера
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	/* .item-main-slider__bg */
+	&__bg {
+		// фон растягиваем и привязываем к блоку слайдера в 0,0
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+
+	&__text {
+		// оганичение на 700 и выравнивание
+		max-width: 700px;
+		// отступ от элемента
+		margin: 25px auto 0px auto;
+		color: #fff;
+		font-size: 15px;
+		flex: 1 1 auto;
+		line-height: calc(25 / 15);
+	}
+
+	/* .item-main-slider__btn */
+
+	&__btn {
+		margin-top: 55px;
+	}
+}
+
+.control-main-slider {
+	/* .control-main-slider__arrow */
+	&__arrow {
+		position: relative;
+		z-index: 2; // вытягиваем на верх bg
+		background: url("../img/icons/sl-arrow.png") 0 0 no-repeat;
+		/* .control-main-slider_prev */
+		width: 14px;
+		height: 24px;
+		cursor: pointer; // стрелки указатели
+		&_prev {
+		}
+
+		/* .control-main-slider_next */
+		&_next {
+			transform: rotate(-180deg); // изображение одно - флипуем
+		}
+	}
+
+	/* .control-main-slider__decor */
+	&__decor {
+		position: relative;
+		z-index: 2; // вытягиваем на верх bg
+		margin: 0 10px;
+		animation: rotate 5s infinite linear;
+	}
+}
+
+// анимация кружка
+@keyframes rotate {
+	0% {
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

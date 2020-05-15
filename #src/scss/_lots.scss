@@ -1,0 +1,271 @@
+.lots {
+	padding: 85px 0px 63px 0px;
+	/* .lots__container */
+
+	&__container {
+	}
+
+	/* .lots__header */
+
+	&__header {
+		margin: 0px 0px 40px 0px;
+	}
+
+	/* .lots__slider */
+
+	&__slider {
+	}
+}
+
+.slider-lots {
+	/* .slider-lots__body */
+	&__body {
+		margin: 0px -50px;
+		.swiper-wrapper {
+			align-items: stretch;
+		}
+	}
+
+	/* .slider-lots__slide */
+	&__slide {
+		padding: 0px 50px;
+	}
+
+	/* .slider-lots__control */
+
+	&__control {
+	}
+}
+
+.control-slider-lots {
+	display: flex;
+	justify-content: center;
+	align-self: center;
+	cursor: pointer;
+	/* .control-slider-lots__arrow */
+	&__arrow {
+		display: flex;
+		align-items: center;
+		span {
+			// заганяем картинку в спан
+			background: url("../img/icons/sl-arrow.svg") 0 0 no-repeat;
+			width: 108px;
+			height: 35px;
+			flex: 0 0 108px;
+		}
+		&:after {
+			content: "";
+			margin: 0px 5px; // у круга по бокам отступы
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			border: 2px solid $brand-c2;
+		}
+
+		&:last-child {
+			flex-direction: row-reverse;
+			span {
+				transform: rotate(-180deg);
+			}
+		}
+
+		/* .control-slider-lots__arrow_prev */
+		&_prev {
+		}
+
+		/* .control-slider-lots__arrow_next */
+
+		&_next {
+		}
+	}
+
+	/* .control-slider-lots__link */
+
+	&__link {
+		background: url("../img/icons/circle.png") 0 0 no-repeat;
+		width: 100px;
+		flex: 0 0 100px;
+		height: 100px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 21px;
+		color: #000;
+		font-weight: 500;
+		font-family: "PFDin";
+		text-transform: uppercase;
+		margin: 0px 20px;
+	}
+}
+
+.lot {
+	text-align: center; // вся информация в лоте - блоке центруется
+	display: flex;
+	flex-direction: column;
+	height: 100%; // эта высота дает возможность растягивать элементы по высоте
+	/* .lot__header */
+	&__header {
+		text-align: center;
+		margin-bottom: 30px;
+		position: relative;
+	}
+
+	/* .lot__image */
+	&__image {
+		display: block;
+		border: 3px solid #bb9c66;
+		padding: 0px 0px 98% 0px;
+	}
+
+	/* .lot__timer */
+	&__timer {
+	}
+
+	/* .lot__title */
+	&__title {
+		font-size: 21px;
+		line-height: calc(25 / 21);
+		font-weight: 500;
+		color: #000;
+		text-transform: uppercase;
+		font-family: "PFDin";
+		flex: 1 1 auto; // увеличиваем этим элементом до высоты родителя
+		position: relative;
+		z-index: 2;
+		margin: 0px 0px 30px/21px * 1em 0px;
+	}
+
+	/* .lot__info */
+	&__info {
+	}
+
+	/* .lot__btn */
+	&__btn {
+		margin: 0px 25px;
+	}
+}
+
+.timer-lot {
+	// поднимаем блок с таймером на 50% вверх
+	transform: translate(-50%, 50%);
+	height: 0.72 * 100px;
+	width: 0.72 * 100px;
+	display: inline-flex;
+	// position: relative;
+	flex-direction: column;
+	align-items: center; // по центру к вертикальной линии
+	padding-top: 2px;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	div {
+		position: relative;
+		z-index: 2;
+	}
+	&:before {
+		content: "";
+		background-color: #fff;
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		transform: rotate(-45deg);
+	}
+	/* .timer-lot__icon */
+	&__icon {
+		margin-bottom: 5px;
+	}
+
+	/* .timer-lot__item */
+
+	&__item {
+		font-family: "PT Sans Narrow";
+		font-size: 18px;
+	}
+}
+.info-lot {
+	display: flex;
+	/* .info-lot__statistic */
+	&__statistic {
+		margin: 0px 0px 35px 0px;
+		flex: 0 0 50px;
+		display: flex;
+		text-align: center;
+	}
+
+	/* .info-lot__icon */
+	&__icon {
+		width: 18px;
+		height: 18px;
+		margin: 0px auto 10px auto;
+		position: relative;
+		display: inline-flex;
+		justify-content: center;
+		align-items: center;
+		picture {
+			position: relative;
+			z-index: 2;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		&:after {
+			content: "";
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			transform: rotate(-45deg);
+			background-color: #000;
+		}
+	}
+
+	/* .info-lot__value */
+	&__value {
+		font-size: 14px;
+		padding: 0px 0px 5px 0px;
+		border-bottom: 1px solid #bb9c66;
+	}
+
+	/* .info-lot__current-bet */
+	&__current-bet {
+		flex: 1 1 auto;
+	}
+}
+.current-bet-info-lot {
+	padding: 0px 5px;
+	position: relative;
+	/* .current-bet-info-lot__label */
+	div {
+		position: relative;
+		z-index: 2;
+	}
+
+	&:after {
+		content: "";
+		position: absolute;
+		width: 72px;
+		height: 72px;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(45deg);
+		border: 1px solid #bb9c66;
+	}
+
+	/* .current-bet-info-lot__label */
+	&__label {
+		margin: 0px 0px 5px 0px;
+	}
+
+	/* .current-bet-info-lot__value */
+	&__value {
+		font-family: "BravoRGRegular";
+		font-size: 50px;
+		white-space: nowrap;
+	}
+
+	/* .current-bet-info-lot__currency */
+	&__currency {
+	}
+}
