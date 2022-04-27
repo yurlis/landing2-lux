@@ -1,0 +1,122 @@
+.quotes {
+	// главные отступы блока
+	padding: 64px 0px 75px 0px;
+	@media (max-width: 767px) {
+		padding: 3px 0px 35px 0px;
+	}
+	&__container {
+	}
+	&__slider {
+		.swiper-wrapper {
+			// align-items: stretch; // это для того чтобы слайдер перелистывался когда в узком адаптиве
+		}
+	}
+}
+
+.slider-quotes {
+	&__body {
+		@media (max-width: 570px) {
+			margin: 0px 0px 30px 0px;
+		}
+	}
+
+	&__slide {
+		display: flex;
+		align-items: center; // текст и картинка отцентрированы вдоль горизонтальной оси
+		opacity: 0 !important; // для эффекта слайдера
+		&.swiper-slide-active {
+			opacity: 1 !important;
+		}
+		@media (max-width: 570px) {
+			display: block;
+		}
+	}
+
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 0px 20px;
+		// для адаптивного уменьшения портрета
+		flex: 0 0 320px/950px * 100%; // картинка отзывчивая - привязывается к ширине контейнера, как она была в дизайне изначальном
+		img {
+			max-width: 100%; // картинке позволяем уменьшатся при масштабировании
+			// т.е. если контейнер меньше картинки то она занимает его размер
+		}
+	}
+
+	&__content {
+		// grow shrink size
+		flex: 0 1 515px; // при помощи 1 позволяем уменьшаться и растягиваться
+	}
+
+	&__title {
+		font-size: 25px;
+		line-height: calc(30 / 25);
+		font-style: italic;
+		margin: 0px 0px 30px/25px * 1em 0px;
+	}
+
+	&__info {
+		color: #1c242a;
+		font-size: 15px;
+		// оступы для подписи автора
+		p {
+			margin: 0px 0px 7px 0px;
+			&:last-child {
+				margin: 0px 0px 0px 0px;
+			}
+		}
+	}
+}
+
+.control-slider-quotes {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	max-width: 400px; // ограничиваем 400
+	margin: 0px auto; // центрируем
+	&__decor {
+		flex: 0 1 100/3+0%; // размер декора 1/3
+		display: flex;
+		align-items: center;
+		// линия
+		&:before {
+			content: "";
+			flex: 1 1 auto; // на всю ширину
+			height: 1px;
+			background-color: $brand-c2;
+		}
+		// кружок
+		&:after {
+			content: "";
+			// левый отступ до линии
+			margin: 0px 0px 0px 5px;
+			width: 10px;
+			border-radius: 50%;
+			height: 10px;
+			border: 1px solid $brand-c2;
+		}
+		&:last-child {
+			flex-direction: row-reverse;
+			// при разворачивании правый отступ до линии
+			&:last-child:after {
+				margin: 0px 5px 0px 0px;
+			}
+		}
+	}
+	&__link {
+		// размер 1/3 центральная и две боковые - это линии
+		text-align: center;
+		flex: 0 1 100/3+0%;
+	}
+	&__circle {
+		display: inline-flex; // работает вместе с родительским text-align: center;
+		width: 50px;
+		height: 50px;
+		cursor: pointer;
+		border-radius: 50%;
+		border: 1px solid $brand-c2;
+		background: url("../img/icons/rotate-arrow.svg") center no-repeat;
+	}
+}

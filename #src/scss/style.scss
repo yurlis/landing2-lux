@@ -53,6 +53,7 @@ body {
 // === основной блок
 
 .page {
+	// 75пикселей отступ потому что шапка нависает - нужно отступить
 	padding: 75px 0px 0px 0px;
 	flex: 1 1 auto;
 }
@@ -64,3 +65,8 @@ body {
 @import "swiper";
 @import "slider";
 @import "lots";
+@import "categories";
+@import "services";
+@import "quotes";
+@import "info";
+@import "footer";

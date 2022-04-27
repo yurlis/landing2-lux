@@ -1,5 +1,5 @@
 .main-slider {
-	/* .main-slider__body */
+
 	position: relative;
 	.swiper-wrapper {
 		align-items: stretch; // это для того если разный по высоте контент - растянуть вниз
@@ -9,6 +9,8 @@
 			align-items: flex-start; // это для того если разный по высоте контент - растянуть вниз
 		}
 	}
+
+		/* .main-slider__body */
 	&__body {
 	}
 

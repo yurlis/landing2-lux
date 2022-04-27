@@ -1,0 +1,35 @@
+.services {
+	background-color: $brand-c1;
+	padding: 60px 0px 4px 0px; // 60px пойдет в внутренний паддинг элементов
+	@media (max-width: 640px) {
+		padding: 40px 0px 0px 0px; // 60px пойдет в внутренний паддинг элементов
+	}
+	&__header {
+		margin: 0px 0px 40px 0px;
+	}
+
+	&__row {
+		margin: 0px -50px;
+		justify-content: center; // элемент в адаптиве перенесется на новую строку и станет по центру
+		display: flex;
+		flex-wrap: wrap; // для адаптива
+	}
+
+	&__column {
+		padding: 0px 50px;
+		margin: 0px 0px 50px 0px;
+		@media (min-width: 976px) {
+			flex: 0 1 (100/3) + 0%;
+			max-width: (100/3) + 0%; // для интернет-эксплорера
+		}
+		@media (max-width: 975px) {
+			flex: 0 1 50%;
+			max-width: (100/2) + 0%; // для интернет-эксплорера
+		}
+		// переходим на всю ширину
+		@media (max-width: 640px) {
+			flex: 1 1 100%;
+			max-width: 100%; // для интернет-эксплорера
+		}
+	}
+}

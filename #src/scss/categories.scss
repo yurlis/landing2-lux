@@ -1,0 +1,224 @@
+.categories {
+	margin: 0px 0px 70px 0px;
+	@media (max-width: 767px) {
+		margin: 0px 0px 35px 0px;
+	}
+
+	/* .categories__items */
+	&__items {
+		margin: 0px 0px 85px 0px;
+		@media (max-width: 767px) {
+			margin: 0px 0px 0px 0px;
+		}
+	}
+
+	/* .categories__container */
+	&__container {
+		overflow: hidden; // скрывает декор - который выходит справа за край контейнера
+		position: relative; // скрываем точки те что снизу
+		&:after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			height: 45px;
+			background-color: #fff;
+			width: 100%;
+		}
+	}
+
+	/* .categories__row */
+	&__row {
+		display: flex;
+		position: relative;
+		flex-wrap: wrap; // чтобы элементы переносились
+		// они сделаны в row колонками column
+		// justify-content: center;
+		margin: 0px -50px 0px;
+		padding: 33px 0px 0px 0px;
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 3px; // из-за overflow контейнера обрезаются повернутые элементы
+			width: 25px * 0.72; // размер ромба 25px
+			height: 25px * 0.72;
+			flex: 0 0 25px * 0.72;
+			// margin: 0px 0px 0px 1px;
+			transform: translate(-50%, 0px) rotate(45deg);
+			border: 1px solid #bb9c66;
+		}
+		&:before {
+			left: (100/3) + 0%;
+			@media (max-width: 975px) {
+				left: 50%; // остается один деко и выравнивается по середине
+			}
+		}
+		&:after {
+			left: (100 * 2 / 3) + 0%;
+			@media (max-width: 975px) {
+				display: none; // остается один деко и выравнивается по середине
+			}
+		}
+	}
+
+	/* .categories__column */
+	&__column {
+		padding: 0px 50px 25px;
+		flex: 0 1 33.333%; // делим на три колонки
+		margin: 0px 0px 25px 0px;
+		position: relative;
+		display: flex; // центрация в колонке
+		justify-content: center;
+		&:before {
+			// ставим точку внизу под элементом
+			content: "";
+			background-color: $brand-c2;
+			width: 10px;
+			height: 10px;
+			flex: 0 0 10px;
+			border-radius: 50%;
+			position: absolute;
+			left: 50%;
+			bottom: -5px; // сдвигаем ее на 50% вверх
+			transform: translate(-50%, 0px);
+		}
+		@media (max-width: 975px) {
+			flex: 0 1 50%; // переходим на 2 колонки делим пополам
+		}
+		@media (max-width: 650px) {
+			flex: 1 1 100%; // переходим на 1 колонку делим пополам
+		}
+	}
+
+	/* .categories__item */
+	&__item {
+	}
+
+	/* .categories__decor */
+	&__decor {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 24px;
+		transform: translate(50%, 0px);
+		height: calc(100% + (0.72 * 12px)); // убираем полвысоты ромба
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		z-index: 5;
+
+		// линия
+		&:before {
+			content: "";
+			background-color: $brand-c2;
+			width: 1px;
+			flex: 1 1 auto;
+		}
+
+		// нижний ромб
+		&:after {
+			// ромб в конце
+			content: "";
+			width: 24px * 0.72;
+			height: 24px * 0.72;
+			flex: 0 0 17.28px;
+			transform: rotate(-45deg);
+			border: 1px solid $brand-c2;
+			margin: 15px 0px 0px 0px;
+		}
+
+		span {
+			// круг и линия
+			flex: 1 1 auto;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+
+			// круг
+			&:before {
+				content: "";
+				background-color: $brand-c2;
+				width: 10px;
+				height: 10px;
+				flex: 0 0 10px;
+				border-radius: 50%;
+				// промежутки сверху сниззу от круга
+				margin: 20px 0;
+			}
+
+			// линия
+			&:after {
+				content: "";
+				background-color: $brand-c2;
+				width: 1px;
+				flex: 1 1 auto;
+			}
+		}
+	}
+
+	&__text {
+	}
+}
+
+.text-categories {
+	color: #333333;
+	font-size: 15px;
+	line-height: calc(25 / 15);
+
+	p {
+		margin: 0px 0px 25px 0px;
+		// последний параграф отступа снизу не имеет
+		&:last-child {
+			margin: 0px 0px 0px 0px;
+		}
+	}
+
+	&__body {
+		// 130px для декора
+		padding: 10px 0px 25px 130px;
+		@media (max-width: $md3+px) {
+			padding-left: 60px;
+		}
+		position: relative;
+		// шапка для декора верхушка
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 85px;
+			height: 100%;
+			background: url("../img/categories/decor.png") left top repeat-y;
+			@media (max-width: $md3+px) {
+				width: 50px;
+				background: url("../img/categories/decor.png") left top / 50px auto repeat-y;
+			}
+			// @media (max-width: 767 px) {
+			// 	display: none;
+			// } Женя выключает узор
+		}
+		&:before {
+			content: "";
+			background: url("../img/categories/decor_header.png") 0 0 no-repeat;
+			position: absolute;
+			top: -2.5px;
+			left: 0;
+			width: 85px;
+			@media (max-width: $md3+px) {
+				width: 50px;
+				background: url("../img/categories/decor_header.png") 0 0 / 50px auto no-repeat;
+			}
+			height: 12px;
+		}
+		// @media (max-width: 767 px) {
+		// 	background: none;
+		// 	padding: 10px 0px 25px 0px;
+		// 	} Женя выключает узор
+	}
+}
+
+// .webp.text-categories__body {
+// 	@media (max-width: 767 px) {
+// 		background: none; !important
+// 	}
+// }

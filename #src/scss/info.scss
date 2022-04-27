@@ -1,0 +1,142 @@
+.info {
+	padding: 0px 0px 75px 0px;
+	@media (max-width: 767px) {
+		padding: 0px 0px 30px 0px;
+	}
+	&__row {
+		display: flex;
+		margin: 0px -22px; // выступы корректируются паддингами
+		flex-wrap: wrap;
+		@media (max-width: 767px) {
+			display: block;
+		}
+	}
+	&__column {
+		flex: 0 1 50%; // ширины по 50 - можно только уменьшать
+		padding: 0px 22px; // компенсируюшщий отрицательные маржины
+		margin: 0px 0px 55px 0px; // отступ в конце колонки
+		@media (max-width: 767px) {
+			margin: 0px 0px 20px 0px;
+		}
+		&:last-child {
+			margin: 0; // у последнего элемента уберем
+			flex: 1 1 100%; // для надежности :) ?
+		}
+	}
+	&__item {
+		margin: 0px 0px 30px 0px;
+		// нижний отступ элемента - новости
+	}
+	&__date {
+		color: $brand-c3;
+		font-size: 12px;
+		margin: 0px 0px 5px 0px;
+	}
+	&__label {
+		font-size: 15px;
+		color: #333333;
+		font-weight: 700;
+		text-decoration: underline;
+		display: inline-block;
+		margin: 0px 0px 5px 0px;
+	}
+	&__text {
+		font-size: 15px;
+		line-height: calc(21 / 15);
+	}
+}
+
+.title-info {
+	display: flex;
+	align-items: center;
+	font-size: 35px;
+	font-family: "PFDin";
+	font-weight: 500;
+	letter-spacing: 3.5px;
+	text-transform: uppercase;
+	margin: 0px 0px 30px 0px;
+	@media (max-width: 767px) {
+		margin: 0px 0px 15px 0px;
+	}
+	span {
+		&:first-child {
+			margin: 0px 15px 0px 0px;
+			// выравнивание картинки в спане
+			picture {
+				// это потому что есть галп и получается тэг picture
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+		}
+	}
+}
+
+.subscribe {
+	&__title {
+	}
+
+	&__body {
+		display: flex;
+		margin: 0px -22px; // аналогично делаем центрацию и отступы компенсируя паддингами
+		@media (max-width: 767px) {
+			display: block;
+		}
+	}
+
+	&__column {
+		flex: 0 1 50%; // две колонки
+		padding: 0px 22px;
+	}
+
+	&__text {
+		font-size: 15px;
+		line-height: calc(21 / 15);
+		@media (max-width: 767px) {
+			margin: 0px 0px 25px 0px;
+		}
+	}
+
+	&__form {
+	}
+}
+
+.form-subscribe {
+	height: 50px;
+	border: 3px solid #bb9c66;
+	background-color: #ffffff;
+	display: flex;
+
+	&__input {
+		flex: 1 1 auto; // растягиваем и уменьшаем по максимальной ширине
+	}
+
+	&__btn {
+		position: relative; // для рисования кнопки
+		flex: 0 0 95px; // весь размер кнопки
+		background-color: #fff;
+
+		// вертикальная полоска слева
+		&:before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transform: translate(0px, -50%);
+			width: 1px;
+			height: 32px;
+			background-color: $brand-c2;
+		}
+		// иконка кнопки
+		span {
+			background: url("../img/icons/ok-btn.png") right no-repeat;
+			padding: 0px 32px 0px 0px; // смещаем текст влево от иконки
+			color: #1c242a;
+			font-family: "PFDin";
+			font-size: 21px;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 2.12px;
+		}
+	}
+}

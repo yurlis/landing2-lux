@@ -20,38 +20,50 @@
 .slider-lots {
 	/* .slider-lots__body */
 	&__body {
-		margin: 0px -50px;
+		margin: 0px -50px 50px; // слайдер отступает вверх и в стороны - для того чтобы сделать промежутки паддингами
 		.swiper-wrapper {
 			align-items: stretch;
+		}
+		@media (max-width: 970px) {
+			margin: 0px -15px 50px;
 		}
 	}
 
 	/* .slider-lots__slide */
 	&__slide {
 		padding: 0px 50px;
+		@media (max-width: 975px) {
+			padding: 0px 15px;
+		}
 	}
 
 	/* .slider-lots__control */
 
 	&__control {
+		margin-top: 20px;
 	}
 }
 
 .control-slider-lots {
 	display: flex;
 	justify-content: center;
-	align-self: center;
+	align-items: center;
 	cursor: pointer;
 	/* .control-slider-lots__arrow */
 	&__arrow {
 		display: flex;
 		align-items: center;
+		justify-content: flex-end;
 		span {
 			// заганяем картинку в спан
-			background: url("../img/icons/sl-arrow.svg") 0 0 no-repeat;
+			background: url("../img/icons/sl-arrow.svg") left no-repeat;
 			width: 108px;
 			height: 35px;
+			overflow: hidden;
 			flex: 0 0 108px;
+			@media (max-width: 450px) {
+				flex: 0 0 80px;
+			}
 		}
 		&:after {
 			content: "";
@@ -124,6 +136,7 @@
 	/* .lot__title */
 	&__title {
 		font-size: 21px;
+		// уменьшается вместе с адаптивным изменением размера шрифта
 		line-height: calc(25 / 21);
 		font-weight: 500;
 		color: #000;
@@ -132,16 +145,26 @@
 		flex: 1 1 auto; // увеличиваем этим элементом до высоты родителя
 		position: relative;
 		z-index: 2;
-		margin: 0px 0px 30px/21px * 1em 0px;
+		margin: 0px 0px 27px/21px * 1em 0px;
+		@media (max-width: 975px) {
+			font-size: 17px;
+		}
+		@media (min-width: 975px) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	/* .lot__info */
 	&__info {
+		margin-bottom: 20px;
 	}
 
 	/* .lot__btn */
 	&__btn {
-		margin: 0px 25px;
+		margin: 0px 25px/150px * 100%; // размер кнопки относительный - привязан к ширине картинки базовой - 150px
+		margin: 0px 25px; // зауживаем ширину кнопки от общего размера
 	}
 }
 
@@ -186,18 +209,24 @@
 }
 .info-lot {
 	display: flex;
+	justify-content: center;
+	@media (max-width: 768px) {
+		justify-content: space-evenly;
+	}
+	margin-bottom: 35px;
 	/* .info-lot__statistic */
 	&__statistic {
-		margin: 0px 0px 35px 0px;
 		flex: 0 0 50px;
-		display: flex;
+		display: flex; //
+		flex-direction: column; //
 		text-align: center;
+		// justify-content: center;
 	}
 
 	/* .info-lot__icon */
 	&__icon {
-		width: 18px;
-		height: 18px;
+		width: 25px * 0.72;
+		height: 25px * 0.72;
 		margin: 0px auto 10px auto;
 		position: relative;
 		display: inline-flex;
@@ -225,12 +254,17 @@
 	&__value {
 		font-size: 14px;
 		padding: 0px 0px 5px 0px;
+		// черточка снизу
 		border-bottom: 1px solid #bb9c66;
 	}
 
 	/* .info-lot__current-bet */
 	&__current-bet {
+		// ставка текстовая - масштабируется
 		flex: 1 1 auto;
+		@media (max-width: 768px) {
+			flex: 0 0 auto;
+		}
 	}
 }
 .current-bet-info-lot {
@@ -238,6 +272,7 @@
 	position: relative;
 	/* .current-bet-info-lot__label */
 	div {
+		// поднимаем над рисунками все дивы
 		position: relative;
 		z-index: 2;
 	}
@@ -245,8 +280,9 @@
 	&:after {
 		content: "";
 		position: absolute;
-		width: 72px;
-		height: 72px;
+		width: 100px * 0.72;
+		height: 100px * 0.72;
+		// центрируем и поворачиваем ромб
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%) rotate(45deg);
@@ -262,7 +298,11 @@
 	&__value {
 		font-family: "BravoRGRegular";
 		font-size: 50px;
+		// не переносится информация - значение ставки в цифрах
 		white-space: nowrap;
+		@media (max-width: 975px) {
+			font-size: 35px;
+		}
 	}
 
 	/* .current-bet-info-lot__currency */
